@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_new_project_template_with_riverpod/navigation/app_router.dart';
 
 class AppColors {
   AppColors._();
 
+  static bool isDarkMode() {
+    if (rootNavigatorKey.currentState != null) {
+      return Theme.of(rootNavigatorKey.currentState!.context).brightness ==
+          Brightness.dark;
+    } else {
+      return true;
+    }
+  }
+
   static const primaryColor = Color(0xffAADB6C);
   static const complementaryPrimaryColor = Color(0xffF29E22);
   static const accentColor = Color(0xff006699);
-  static const surfaceColor = Color(0xffF0F0F0);
+  static final surfaceColor =
+      isDarkMode() ? const Color(0xff1e1e1e) : const Color(0xffF0F0F0);
+
+  static final lightSurfaceColor = isDarkMode() ? const Color(0xff282828) : const Color(0xfff6f6f6);
+
   static const surfaceColorSecondary = Color(0xffffe6d2);
   static const errorColor = Color(0xffea0000);
   static const textfieldLightSurfaceColor = Color(0xffffe6d2);

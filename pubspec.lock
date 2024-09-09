@@ -238,10 +238,11 @@ packages:
   flutter_annual_task:
     dependency: "direct main"
     description:
-      name: flutter_annual_task
-      sha256: e27e561a209e4fbc1f33699e35873f9a5632b88a76148844b6d82fee6d51d357
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: "5e4afc0ca4f734466c55427f9b6504cf1f0c47dd"
+      url: "https://github.com/mehroze-zaidi/flutter_annual_task.git"
+    source: git
     version: "0.2.0"
   flutter_lints:
     dependency: "direct dev"

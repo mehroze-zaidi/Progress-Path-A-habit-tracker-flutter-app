@@ -6,6 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/app/progress_path_app.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 
@@ -15,7 +16,7 @@ import '../lib/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const ProgressPathApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

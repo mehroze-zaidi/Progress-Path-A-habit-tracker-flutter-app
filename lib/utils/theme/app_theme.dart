@@ -5,8 +5,9 @@ import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_c
 class AppTheme{
 
   AppTheme._();
-
+  static String fontFamily = "Cairo";
   static final ThemeData light= ThemeData(
+    fontFamily:fontFamily ,
   //primarySwatch: Colors.green,
   colorScheme: ColorScheme.fromSeed(
   seedColor: AppColors.primaryColor,
@@ -21,13 +22,14 @@ class AppTheme{
 
 
   static final ThemeData dark= ThemeData(
+    fontFamily:fontFamily ,
     //primarySwatch: Colors.green,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,
-      brightness: Brightness.light,
+      brightness: Brightness.dark,
 
     ),
-    scaffoldBackgroundColor: AppColors.white,
+    scaffoldBackgroundColor: AppColors.black,
 
     appBarTheme: const AppBarTheme(),
     useMaterial3: true,
