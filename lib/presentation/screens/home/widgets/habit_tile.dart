@@ -1,15 +1,22 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_annual_task/flutter_annual_task.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/rounded_container_widget.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/screens/home/notifiers/task_completed_notifier.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/extensions/space.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HabitTile extends ConsumerWidget {
-  const HabitTile({super.key});
 
+class HabitTile extends StatelessWidget {
+  const HabitTile({super.key,this.onTaskComplete,this.completed=false});
+final VoidCallback? onTaskComplete;
+final bool completed;
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
+
+
     return RoundedContainerWidget(
         color: AppColors.surfaceColor,
         child: Padding(
@@ -32,16 +39,13 @@ class HabitTile extends ConsumerWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
-
                     children: [
                       Text(
                         "Work Out",
-
-                        style:
-                            Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  color: AppColors.white,
-                              height: 1
-                                ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium!
+                            .copyWith(color: AppColors.white, height: 1),
                       ),
                       Text(
                         "I need to work out daily",
@@ -53,28 +57,35 @@ class HabitTile extends ConsumerWidget {
                   ),
                   const Spacer(),
                   IconButton(
-                    visualDensity: VisualDensity(vertical: -2,horizontal: -2),
-                    iconSize: 24,
-                    padding: EdgeInsets.zero,
+
+                      //isSelected: taskCompletedNotifier.isCompleted,
+                      visualDensity:
+                          const VisualDensity(vertical: -2, horizontal: -2),
+                      iconSize: 24,
+                      padding: EdgeInsets.zero,
                       style: ButtonStyle(
-                          shape:
-                              const WidgetStatePropertyAll(RoundedRectangleBorder(side: BorderSide(color: AppColors.white))),
+                          shape: const WidgetStatePropertyAll(
+                              RoundedRectangleBorder(
+                                  side: BorderSide(color: AppColors.white))),
                           backgroundColor: WidgetStatePropertyAll(
-                              AppColors.lightSurfaceColor)),
-                      onPressed: () {},
+                              completed
+                                  ? AppColors.errorColor
+                                  : AppColors.lightSurfaceColor)),
+                      onPressed: () {
+                      onTaskComplete?.call();
+                      },
                       icon: const Icon(Icons.check))
                 ],
               ),
               10.verticalSpace,
               AnnualTaskView(
-                spacing: 2,
+                  spacing: 2,
                   // showMonthLabel: true,
                   // showWeekDayLabel: true,
                   swipeEnabled: true,
                   cellWidthFactor: 1.5,
                   activateColor: AppColors.errorColor,
                   cellShape: AnnualTaskCellShape.ROUNDED_SQUARE,
-
                   [AnnualTaskItem(DateTime.now())]),
             ],
           ),
