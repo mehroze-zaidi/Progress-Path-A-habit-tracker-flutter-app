@@ -19,7 +19,8 @@ class AppColors {
   static final surfaceColor =
       isDarkMode() ? const Color(0xff1e1e1e) : const Color(0xffF0F0F0);
 
-  static final lightSurfaceColor = isDarkMode() ? const Color(0xff282828) : const Color(0xfff6f6f6);
+  static final lightSurfaceColor =
+      isDarkMode() ? const Color(0xff282828) : const Color(0xfff6f6f6);
 
   static const surfaceColorSecondary = Color(0xffffe6d2);
   static const errorColor = Color(0xffea0000);
@@ -28,6 +29,11 @@ class AppColors {
   static const greyShadowColor = Color(0xffb7b7b7);
   static const disabledColor = Color(0xffcecdcd);
   static const white = Color(0xFFFFFFFF);
+  static final whiteTxtColor =
+      isDarkMode() ? const Color(0xFFFFFFFF) : const Color(0xFFFFFFFF);
+  static final blackTxtColor =
+      isDarkMode() ? const Color(0xFFFFFFFF) : const Color(0xFFFFFFFF);
+
   static const white80 = Color(0xCCFFFFFF);
   static const white70 = Color(0xB3FFFFFF);
   static const white60 = Color(0xFFFFFFFF);
