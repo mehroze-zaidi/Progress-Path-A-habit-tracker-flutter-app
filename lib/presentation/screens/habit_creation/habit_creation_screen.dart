@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/app_textfield.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/rounded_container_widget.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/screen_body.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/widgets/completion_per_day_view.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/widgets/habit_colors_view.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/widgets/habit_icons_view.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
@@ -34,6 +35,10 @@ class _HabitCreationScreenState extends State<HabitCreationScreen> {
                   color: AppColors.white,
                 ),
           ),
+          actions: [IconButton(onPressed: () {
+           // context.goNamed(AppRoute.habitCreation.name);
+
+          }, icon: const Icon(Icons.check_circle_rounded,size: 30,))],
         ),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -142,55 +147,7 @@ class _HabitCreationScreenState extends State<HabitCreationScreen> {
                 ],
               ),
               20.verticalSpace,
-              Text(
-                "Completion Per Day",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: AppColors.blackTxtColor,
-                    ),
-              ),
-              5.verticalSpace,
-              Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: RoundedContainerWidget(
-                        height: 42,
-                        color: Colors.transparent,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "1/day",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      color: AppColors.whiteTxtColor,
-                                    ),
-                          ),
-                        )),
-                  ),
-                  10.horizontalSpace,
-                  RoundedContainerWidget(
-                      height: 42,
-                      color: Colors.transparent,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.add,
-                            ),
-                          ),
-                          5.horizontalSpace,
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.remove,
-                            ),
-                          ),
-                        ],
-                      ))
-                ],
-              ),
+             CompletionPerDayView(),
               20.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
