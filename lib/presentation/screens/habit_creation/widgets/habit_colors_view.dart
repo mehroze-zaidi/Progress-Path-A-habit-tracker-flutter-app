@@ -24,7 +24,7 @@ class HabitColorsView extends StatelessWidget {
           itemCount: ref.read(habitColorsProvider).length,
 
           gridDelegate:
-          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 7,mainAxisSpacing: 5,crossAxisSpacing: 5),
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 9,mainAxisSpacing: 5,crossAxisSpacing: 5),
           itemBuilder: (context, index) {
             return InkWell(
               onTap:() {

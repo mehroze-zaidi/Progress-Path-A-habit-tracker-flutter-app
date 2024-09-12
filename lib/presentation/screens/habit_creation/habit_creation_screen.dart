@@ -3,6 +3,7 @@ import 'package:flutter_new_project_template_with_riverpod/presentation/common_w
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/rounded_container_widget.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/screen_body.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/widgets/habit_colors_view.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/widgets/habit_icons_view.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/extensions/space.dart';
 import 'package:go_router/go_router.dart';
@@ -209,16 +210,7 @@ class _HabitCreationScreenState extends State<HabitCreationScreen> {
                 ],
               ),
               5.verticalSpace,
-              GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 21,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 7),
-                itemBuilder: (context, index) {
-                  return IconButton(onPressed: () {}, icon: Icon(Icons.alarm));
-                },
-              ),
+              HabitIconsView(),
 
               20.verticalSpace,
               Text(
