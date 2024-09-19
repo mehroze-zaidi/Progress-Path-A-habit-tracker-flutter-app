@@ -24,6 +24,7 @@ final goRouterProvider = Provider<GoRouter>(
                     child: const SplashScreen(),
                   )),
           GoRoute(
+
               path: '/home',
               name: AppRoute.home.name,
               pageBuilder: (context, state) => NoTransitionPage(

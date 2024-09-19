@@ -34,6 +34,9 @@ class AppColors {
   static final blackTxtColor =
       isDarkMode() ? const Color(0xFFFFFFFF) : const Color(0xFFFFFFFF);
 
+  static final hintLightBlackTxtColor =
+  isDarkMode() ? const Color(0xFFC2C2C2) : const Color(0xFFE7E7E7);
+
   static const white80 = Color(0xCCFFFFFF);
   static const white70 = Color(0xB3FFFFFF);
   static const white60 = Color(0xFFFFFFFF);
@@ -54,6 +57,8 @@ class AppColors {
   static const dividerColor = Color(0xFFA6A6A6);
   static const successColor = Color(0xFF8DC25D);
   static const transparent = Colors.transparent;
+  static final  lightModeSurfaceColor = isDarkMode()  ?const Color(0xFFEEEEEE):const Color(
+      0xFF808080);
 
   // Light theme colors
   static const lightBackground = Color(0xFFF7F7F7);

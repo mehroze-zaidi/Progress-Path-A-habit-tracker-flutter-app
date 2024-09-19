@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_new_project_template_with_riverpod/domain/enums/streak_goal.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/rounded_container_widget.dart';
-import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/habit_creation_screen.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/notifiers/update_counter_notifier.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/screens/streak_goal/notifiers/update_counter_notifier.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/extensions/space.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CompletionPerDayView extends ConsumerWidget {
-  const CompletionPerDayView({super.key});
-
+class CompletionPerIntervalView extends ConsumerWidget {
+  const CompletionPerIntervalView({super.key,required   this.interval});
+final StreakGoal interval;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counter = ref.watch(counterProvider);
+    final counter = ref.watch(streakIntervalUpdateCounterProvider);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Completion Per Day",
+          "Completions Per Interval",
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: AppColors.blackTxtColor,
-              ),
+            color: AppColors.blackTxtColor,
+          ),
         ),
         5.verticalSpace,
         Row(
@@ -33,10 +34,10 @@ class CompletionPerDayView extends ConsumerWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "$counter/day",
+                      "$counter/${interval.name}",
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: AppColors.whiteTxtColor,
-                          ),
+                        color: AppColors.whiteTxtColor,
+                      ),
                     ),
                   )),
             ),
@@ -50,8 +51,7 @@ class CompletionPerDayView extends ConsumerWidget {
                     IconButton(
 
                       onPressed: () {
-                        ref.read(counterProvider.notifier).increaseCounter();
-                        ref.read(completionPerDayProvider.notifier).state=counter;
+                        ref.read(streakIntervalUpdateCounterProvider.notifier).increaseCounter();
                       },
                       icon: const Icon(
                         Icons.add,
@@ -61,8 +61,7 @@ class CompletionPerDayView extends ConsumerWidget {
                     5.horizontalSpace,
                     IconButton(
                       onPressed: () {
-                        ref.read(counterProvider.notifier).decreaseCounter();
-                        ref.read(completionPerDayProvider.notifier).state=counter;
+                        ref.read(streakIntervalUpdateCounterProvider.notifier).decreaseCounter();
                       },
                       icon: Icon(
                         Icons.remove,

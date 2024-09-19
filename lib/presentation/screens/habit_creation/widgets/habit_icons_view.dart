@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/common_widgets/rounded_container_widget.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/providers/habit_icons_provider.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/habit_creation_screen.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -32,6 +33,8 @@ class HabitIconsView extends StatelessWidget {
                 customBorder:Border.all(color: AppColors.white, width: 2),
 
                 onTap: () {
+                   ref.read(iconPathProvider.notifier).state =ref.read(habitIconsProvider)[index];
+
                   ref.read(selectedIconIndexProvider.notifier).state = index;
                 },
                 child: RoundedContainerWidget(

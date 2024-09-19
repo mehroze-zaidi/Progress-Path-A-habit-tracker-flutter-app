@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/providers/habit_colors_provider.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_creation/habit_creation_screen.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -28,7 +29,7 @@ class HabitColorsView extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap:() {
-
+                ref.read(selectedColorProvider.notifier).state=ref.read(habitColorsProvider)[index].value;
                 ref.read(selectedColorIndexProvider.notifier).state=index;
                 onColorSelected?.call(ref.read(habitColorsProvider)[index]);
               },
