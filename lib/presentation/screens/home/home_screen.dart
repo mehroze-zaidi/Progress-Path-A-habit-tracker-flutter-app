@@ -5,6 +5,7 @@ import 'package:flutter_new_project_template_with_riverpod/presentation/common_w
 import 'package:flutter_new_project_template_with_riverpod/presentation/providers/habits_provider.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/screens/habit_detail/habit_detail_screen.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/screens/home/widgets/habit_tile.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/screens/home/widgets/no_habit_view.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/extensions/space.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -26,6 +27,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final  List<Habit> habits = ref.watch<List<Habit>>(habitsProvider);
     return ScreenBody(
         appBar: AppBar(
+          leading:IconButton(
+              onPressed: () {
+                context.goNamed(AppRoute.settings.name);
+              },
+              icon: const Icon(Icons.settings,size: 28,)),
           title: Text(
             "Progress Path: A Habit Tracker",
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -37,11 +43,16 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 onPressed: () {
                   context.goNamed(AppRoute.habitCreation.name);
                 },
+                icon: const Icon(Icons.bar_chart,size: 28,)),
+            IconButton(
+                onPressed: () {
+                  context.goNamed(AppRoute.habitCreation.name);
+                },
                 icon: const Icon(Icons.add_box_outlined,size: 28,))
           ],
         ),
         enableScroll: false,
-        child: ListView.separated(
+        child: ref.read(habitsProvider).isEmpty?const NoHabitView(): ListView.separated(
             padding: const EdgeInsets.all(16),
             itemBuilder: (context, index) {
               return GestureDetector(
