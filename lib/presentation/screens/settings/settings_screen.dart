@@ -18,6 +18,16 @@ class SettingsScreen extends StatelessWidget {
     SettingItem(AppAssets.apple, "Reorder Habits"),
   ];
 
+
+  final List<SettingItem> appGeneralSettingItems = const [
+    SettingItem(AppAssets.apple, "Website"),
+    SettingItem(AppAssets.apple, "Follow on Twitter"),
+    SettingItem(AppAssets.apple, "Privacy Policy"),
+    SettingItem(AppAssets.apple, "Terms of user"),
+    SettingItem(AppAssets.apple, "Rate this app"),
+    SettingItem(AppAssets.apple, "Send Feedback"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ScreenBody(
@@ -42,31 +52,35 @@ class SettingsScreen extends StatelessWidget {
             RoundedContainerWidget(
               showBorder: false,
               borderRadius: 6,
-            color: AppColors.lightSurfaceColor,
+              color: AppColors.lightSurfaceColor,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.adb,
-                      size: 34,
+                    Image.asset(
+                      AppAssets.progressPathSplashIconWithoutShadow,
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.fill,
                     ),
-                    20.horizontalSpace,
+                    5.horizontalSpace,
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Subscribe to Progress Path Pro",
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                color: AppColors.blackTxtColor,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: AppColors.blackTxtColor,
+                                  ),
                         ),
                         Text(
                           "Unlimited Habit, Import/Export Data",
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                color: AppColors.blackTxtColor,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: AppColors.blackTxtColor,
+                                  ),
                         ),
                       ],
                     )
@@ -76,33 +90,97 @@ class SettingsScreen extends StatelessWidget {
             ),
             20.verticalSpace,
             Text(
-              "App",
+              "APP",
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: AppColors.blackTxtColor  ,
+                    color: AppColors.blackTxtColor,
                   ),
             ),
             5.verticalSpace,
-            RoundedContainerWidget(
-              showBorder: false,
-              borderRadius: 6,
-              color: AppColors.lightSurfaceColor,
-              child: ListView.separated(padding:
-                  EdgeInsets.zero,physics: NeverScrollableScrollPhysics(),shrinkWrap: true,itemBuilder: (context, index) {
-                return ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                  trailing: Icon(Icons.arrow_forward_ios,size: 14,),
+            Ink(
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColors.lightSurfaceColor,),
 
-                  visualDensity: VisualDensity(vertical: -3),
-                  title: Text(
-                    appSettingItems[index].title,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: AppColors.blackTxtColor,
-                    ),
+              child: ListView.separated(
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 14,
+                      ),
+                      visualDensity: VisualDensity(vertical: -3),
+                      title: Text(
+                        appSettingItems[index].title,
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: AppColors.blackTxtColor,
+                            ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => Divider(
+                        height: 0,
+                      ),
+                  itemCount: appSettingItems.length),
+            ),
+
+
+            20.verticalSpace,
+            Text(
+              "GENERAL",
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: AppColors.blackTxtColor,
+              ),
+            ),
+            5.verticalSpace,
+            Ink(
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColors.lightSurfaceColor,),
+
+              child: ListView.separated(
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      onTap: () {
+                      
+                      },
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      leading: Icon(Icons.apple,),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 14,
+                      ),
+                      visualDensity: VisualDensity(vertical: -3),
+                      title: Text(
+                        appGeneralSettingItems[index].title,
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: AppColors.blackTxtColor,
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => Divider(
+                    height: 0,
                   ),
-                );
-              }, separatorBuilder:(context, index) =>  Divider(height: 0,), itemCount: appSettingItems.length),
-            )
-          ],
+                  itemCount: appGeneralSettingItems.length),
+            ),
+            20.verticalSpace,
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch,children: [Text(
+              "Progress Path 1.2.7 (123)",textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: AppColors.blackTxtColor,
+              ),
+            ),
+              Text(
+                "Made by Mehroze Zaidi",textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  color: AppColors.blackTxtColor,
+                ),
+              ),
+            ],)
+             ],
         ),
       ),
     );

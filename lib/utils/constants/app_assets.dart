@@ -50,4 +50,12 @@ class AppAssets {
   static const trophy = "assets/images/trophy.png";
   static const water = "assets/images/water.png";
 
+
+  static const progressPathSplashIcon = "assets/images/progress_path_splash_icon.png";
+  static const progressPathSplashIconWithoutShadow = "assets/images/progress_path_splash_icon_without_sadow.png";
+
+
+
+
+
 }

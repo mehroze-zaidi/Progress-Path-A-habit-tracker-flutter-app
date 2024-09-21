@@ -9,7 +9,7 @@ class SplashScreenNotifier extends Notifier<bool> {
 
   Future<void> startSplash() async {
     // Simulate a delay for the splash screen
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds:3));
     state = true; // Change state to indicate navigation should occur
   }
 

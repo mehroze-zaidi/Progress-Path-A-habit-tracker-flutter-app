@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_new_project_template_with_riverpod/navigation/app_router.dart';
+import 'package:flutter_new_project_template_with_riverpod/presentation/app/progress_path_app.dart';
 import 'package:flutter_new_project_template_with_riverpod/presentation/screens/splash/splash_screen_notifier.dart';
+import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_assets.dart';
 import 'package:flutter_new_project_template_with_riverpod/utils/constants/app_colors.dart';
+import 'package:flutter_new_project_template_with_riverpod/utils/extensions/space.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,13 +27,19 @@ class SplashScreen extends ConsumerWidget {
       });
     }
     return Scaffold(
-      body: Center(
-        child: Text(
-          "Splash Screen",
-          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: AppColors.white,
-              ),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(AppAssets.progressPathSplashIcon,width: 200,height: 200,),
+          10.verticalSpace,
+          Text(
+            "Create Good Habits and Break bad Habits with Progress Path",
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: AppColors.white,
+                ),
+          ),
+        ],
       ),
     );
   }

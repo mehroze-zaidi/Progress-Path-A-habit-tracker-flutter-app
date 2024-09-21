@@ -34,7 +34,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               icon: const Icon(Icons.settings,size: 28,)),
           title: Text(
             "Progress Path: A Habit Tracker",
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: AppColors.white,
                 ),
           ),
