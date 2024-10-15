@@ -19,7 +19,9 @@ dependencies:
   flutter_riverpod: ^2.5.1
 
   flutter_annual_task:
+
     git:
+
       url: https://github.com/mehroze-zaidi/flutter_annual_task.git
       ref: master
   flutter_screenutil: ^5.9.3
@@ -33,8 +35,8 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^4.0.0
-  build_runner: ^2.4.9
   riverpod_generator: ^2.4.0
+  build_runner: ^2.4.9
   freezed: ^2.5.2
   json_serializable: ^6.8.0
 

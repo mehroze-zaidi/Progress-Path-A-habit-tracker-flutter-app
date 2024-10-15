@@ -101,16 +101,16 @@ class SettingsScreen extends StatelessWidget {
 
               child: ListView.separated(
                   padding: EdgeInsets.zero,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      trailing: Icon(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                      trailing: const Icon(
                         Icons.arrow_forward_ios,
                         size: 14,
                       ),
-                      visualDensity: VisualDensity(vertical: -3),
+                      visualDensity: const VisualDensity(vertical: -3),
                       title: Text(
                         appSettingItems[index].title,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -119,7 +119,7 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  separatorBuilder: (context, index) => Divider(
+                  separatorBuilder: (context, index) => const Divider(
                         height: 0,
                       ),
                   itemCount: appSettingItems.length),
@@ -139,20 +139,20 @@ class SettingsScreen extends StatelessWidget {
 
               child: ListView.separated(
                   padding: EdgeInsets.zero,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return ListTile(
                       onTap: () {
                       
                       },
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      leading: Icon(Icons.apple,),
-                      trailing: Icon(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                      leading: const Icon(Icons.apple,),
+                      trailing: const Icon(
                         Icons.arrow_forward_ios,
                         size: 14,
                       ),
-                      visualDensity: VisualDensity(vertical: -3),
+                      visualDensity: const VisualDensity(vertical: -3),
                       title: Text(
                         appGeneralSettingItems[index].title,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -161,7 +161,7 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  separatorBuilder: (context, index) => Divider(
+                  separatorBuilder: (context, index) => const Divider(
                     height: 0,
                   ),
                   itemCount: appGeneralSettingItems.length),
